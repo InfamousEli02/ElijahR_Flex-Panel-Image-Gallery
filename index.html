@@ -27,11 +27,12 @@
     .panels {
       min-height: 100vh;
       overflow: hidden;
+      display: flex;
     }
 
     .panel {
       background: #6B0F9C;
-      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      box-shadow: inset 0 0 0 5px rgba(14, 13, 13, 0);
       color: white;
       text-align: center;
       align-items: center;
@@ -44,25 +45,43 @@
       font-size: 20px;
       background-size: cover;
       background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
     }
 
-    .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-    .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-    .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-    .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-    .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
-
-    /* Flex Children */
+    .panel1 { background-image:url(https://wallpapercave.com/wp/wp11849169.jpg); }
+    .panel2 { background-image:url(https://wallpapercave.com/wp/wp11410870.jpg); }
+    .panel3 { background-image:url(https://wallpapercave.com/wp/wp11849224.jpg); }
+    .panel4 { background-image:url(https://www.wallpapergap.com/cdn/24/14/dusty-blue-background-free-download-1500x1500.jpg); }
+    .panel5 { background-image:url(https://www.wallpapergap.com/cdn/24/107/paper-airplane-design-wallpaper-1500x1500.jpg); }
+    .panel6 { background-image:url(https://www.wallpapergap.com/cdn/25/27/aesthetic-jade-green-wallpaper-1500x1500.jpg); }
+    .panel7 { background-image:url(https://www.wallpapergap.com/cdn/24/14/solid-dusty-blue-wallpaper-1500x1500.jpg); }
+    .panel8 { background-image:url(https://gallery.yopriceville.com/downloadfullsize/send/4744); }
+    .panel9 { background-image:url(https://wallpapercave.com/wp/wp11849125.jpg); }
+    .panel10 { background-image:url(https://wallpapercave.com/wp/wp11849165.jpg); }
+    /* Flex Items */
     .panel > * {
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    .panel > *:first-child { transform: translateY(-100%);}
+    .panel.open-active > *:first-child { transform: translateY(0);}
+    .panel > *:last-child { transform: translateY(100%);}
+    .panel.panel.open-active > *:last-child { transform: translateY(0);}
 
     .panel p {
       text-transform: uppercase;
       font-family: 'Amatic SC', cursive;
-      text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      text-shadow: 0 0 4px rgba(29, 26, 26, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
       font-size: 2em;
     }
 
@@ -71,6 +90,7 @@
     }
 
     .panel.open {
+      flex: 5;
       font-size: 40px;
     }
 
@@ -79,33 +99,88 @@
 
   <div class="panels">
     <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
+      <p>Live</p>
+      <p>And</p>
+      <p>Learn</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
+      <p>It's</p>
+      <p>Show</p>
+      <p>time</p>
     </div>
     <div class="panel panel3">
       <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
+      <p>Life</p>
+      <p>Together</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
+      <p>Go</p>
+      <p>Further</p>
+      <p>Beyond</p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+      <p>Continue</p>
+      <p>The</p>
+      <p>Dream</p>
+    </div>
+  </div>
+
+  <div class="panels">
+    <div class="panel panel6">
+      <p>Finish</p>
+      <p>The</p>
+      <p>Story</p>
+    </div>
+    <div class="panel panel7">
+      <p>Gain</p>
+      <p>Some</p>
+      <p>Experience</p>
+    </div>
+    <div class="panel panel8">
+      <p>So</p>
+      <p>Believe</p>
+      <p>It</p>
+    </div>
+    <div class="panel panel9">
+      <p>Power</p>
+      <p>Of</p>
+      <p>Determination</p>
+    </div>
+    <div class="panel panel10">
+      <p>All</p>
+      <p>Or</p>
+      <p>Nothing</p>
     </div>
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      console.log('Hello');
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      if(e.propertyName.includes('flex')){
+      this.classList.toggle('open-active');
+      }
+      
+    }
+//changes text color when mouse hovers over
+    function hoverEffect(){ 
+      this.style.color = "yellow";
+    }
+
+    function noHover(){
+      this.style.color = "white";
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+    panels.forEach(panel => panel.addEventListener('mouseover', hoverEffect));
+    panels.forEach(panel => panel.addEventListener('mouseout', noHover));
 
   </script>
 
