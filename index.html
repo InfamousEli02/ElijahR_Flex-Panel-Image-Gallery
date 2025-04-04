@@ -27,7 +27,9 @@
     .panels {
       min-height: 100vh;
       overflow: hidden;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto auto auto auto auto;
+      width: 100%;
     }
 
     .panel {
@@ -52,6 +54,7 @@
       flex-direction: column;
       animation-name: colorChange;
       animation-duration: 5s;
+      width: 100%;
     }
 
     .panel1 { background-image:url(https://wallpapercave.com/wp/wp11849227.jpg); }
@@ -75,10 +78,10 @@
       align-items: center;
     }
 
-    .panel > *:first-child { transform: translateY(-100%);}
-    .panel.open-active > *:first-child { transform: translateY(0);}
-    .panel > *:last-child { transform: translateY(100%);}
-    .panel.panel.open-active > *:last-child { transform: translateY(0);}
+    .panel > *:first-child { transform: translateX(-700%);}
+    .panel.open-active > *:first-child { transform: translateX(0);}
+    .panel > *:last-child { transform: translateX(700%);}
+    .panel.open-active > *:last-child { transform: translateX(0);}
 
     .panel p {
       text-transform: uppercase;
@@ -130,9 +133,6 @@
       <p>The</p>
       <p>Dream</p>
     </div>
-  </div>
-
-  <div class="panels">
     <div class="panel panel6">
       <p>Finish</p>
       <p>The</p>
