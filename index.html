@@ -50,11 +50,13 @@
       align-items: center;
       display: flex;
       flex-direction: column;
+      animation-name: colorChange;
+      animation-duration: 5s;
     }
 
-    .panel1 { background-image:url(https://wallpapercave.com/wp/wp11849169.jpg); }
+    .panel1 { background-image:url(https://wallpapercave.com/wp/wp11849227.jpg); }
     .panel2 { background-image:url(https://wallpapercave.com/wp/wp11410870.jpg); }
-    .panel3 { background-image:url(https://wallpapercave.com/wp/wp11849224.jpg); }
+    .panel3 { background-image:url(https://www.wallpapergap.com/cdn/24/14/dusty-blue-aesthetic-wallpaper-1500x1500.jpg); }
     .panel4 { background-image:url(https://www.wallpapergap.com/cdn/24/14/dusty-blue-background-free-download-1500x1500.jpg); }
     .panel5 { background-image:url(https://www.wallpapergap.com/cdn/24/107/paper-airplane-design-wallpaper-1500x1500.jpg); }
     .panel6 { background-image:url(https://www.wallpapergap.com/cdn/25/27/aesthetic-jade-green-wallpaper-1500x1500.jpg); }
@@ -92,6 +94,11 @@
     .panel.open {
       flex: 5;
       font-size: 40px;
+    }
+
+    @keyframes colorChange { /*animation code */
+      from {color: white;}
+      to {color: red;}
     }
 
   </style>
